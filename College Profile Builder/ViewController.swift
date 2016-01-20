@@ -8,18 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
+{
 
-    override func viewDidLoad() {
+    var colleges : [CollegeObject] = []
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        colleges.append(CollegeObject(Name: "University of Michigan", Location: "Ann Arbor, Michigan", Enrollment: 43651, Image: UIImage(named: "default")!))
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
