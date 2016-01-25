@@ -24,5 +24,11 @@ class CollegeObject: NSObject
         image = Image
     }
     
+    init(Name: String, Location: String)
+    {
+        name = Name
+        location = Location
+    }
+    
     
 }

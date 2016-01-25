@@ -44,18 +44,88 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="jab-dv-BmO" kind="show" id="eLU-rH-qNX"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nTw-GM-n5f"/>
+                    <navigationItem key="navigationItem" id="nTw-GM-n5f">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="lGg-h0-Bye">
+                            <connections>
+                                <action selector="editButtonTapped:" destination="BYZ-38-t0r" id="7mX-hu-Uz9"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="aVK-NJ-ShM">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="nOh-ZN-3ai"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="editButton" destination="lGg-h0-Bye" id="JQa-5k-H7s"/>
+                        <outlet property="myTableView" destination="Kdl-Nx-FSO" id="PPP-dG-6BA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1099.5" y="285.5"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="RvP-bL-NmL">
+            <objects>
+                <viewController id="jab-dv-BmO" customClass="DetailViewController" customModule="College_Profile_Builder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fxc-FA-ucK"/>
+                        <viewControllerLayoutGuide type="bottom" id="yq2-TK-pVO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bSp-Lo-uwz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4fx-U6-byN">
+                                <rect key="frame" x="67" y="92" width="240" height="251"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yqv-Jd-8eN">
+                                <rect key="frame" x="76" y="357" width="222" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3VE-oC-5y7">
+                                <rect key="frame" x="76" y="403" width="222" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Student Population" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MOs-jy-FQ3">
+                                <rect key="frame" x="76" y="447" width="222" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmf-u8-Zvi">
+                                <rect key="frame" x="164" y="485" width="46" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="jab-dv-BmO" eventType="touchUpInside" id="XdK-3B-okZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="enrollmentTextField" destination="MOs-jy-FQ3" id="6co-M6-OL5"/>
+                        <outlet property="locationTextField" destination="3VE-oC-5y7" id="iyU-se-4PU"/>
+                        <outlet property="myImageView" destination="4fx-U6-byN" id="gam-EP-feB"/>
+                        <outlet property="nameTextField" destination="yqv-Jd-8eN" id="DBh-Gy-tPn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5ti-Zy-ezL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1533.5" y="285.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6jz-Pc-WKF">
