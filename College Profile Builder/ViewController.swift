@@ -22,7 +22,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         myTableView.dataSource = self
         myTableView.delegate = self
         editButton.tag = 0
-        colleges.append(CollegeObject(Name: "University of Michigan", Location: "Ann Arbor, Michigan", Enrollment: 43651, Image: UIImage(named: "default")!))
+        colleges.append(CollegeObject(Name: "University of Michigan", Location: "Ann Arbor, Michigan", Enrollment: 43651, Image: UIImage(named: "michigan")!))
         colleges.append(CollegeObject(Name: "University of Wisconsin", Location: "Madison, Wisconsin", Enrollment: 43193, Image: UIImage(named: "wisc")!))
         colleges.append(CollegeObject(Name: "Northwestern University", Location: "Evanston, Illinois", Enrollment: 20336, Image: UIImage(named: "north")!))
     }
@@ -83,15 +83,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         myAlert.addTextFieldWithConfigurationHandler { (nameTextField) -> Void in
             nameTextField.placeholder = "College Name"
         }
-        myAlert.addTextFieldWithConfigurationHandler { (realTextField) -> Void in
-            realTextField.placeholder = "Location"
+        myAlert.addTextFieldWithConfigurationHandler { (locationTextField) -> Void in
+            locationTextField.placeholder = "Location"
+        }
+        myAlert.addTextFieldWithConfigurationHandler { (enrollmentTextField) -> Void in
+            enrollmentTextField.placeholder = "Enrollment"
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
         myAlert.addAction(cancelAction)
         let addAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.Default) { (addAction) -> Void in
             let collegeTF = myAlert.textFields![0] as UITextField
             let locationTF = myAlert.textFields![1] as UITextField
-            self.colleges.append(CollegeObject(Name: collegeTF.text!, Location: locationTF .text!))
+            let enrollmentTF = myAlert.textFields![2] as UITextField
+            self.colleges.append(CollegeObject(Name: collegeTF.text!, Location: locationTF .text!, Enrollment: Int(enrollmentTF.text!)!))
             self.myTableView.reloadData()
         }
         myAlert.addAction(addAction)
