@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iua-iJ-n0p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iua-iJ-n0p">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -87,8 +87,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4fx-U6-byN">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4fx-U6-byN">
                                 <rect key="frame" x="67" y="92" width="240" height="251"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="WeR-pd-gO7" appends="YES" id="kN1-FB-1MI"/>
+                                </connections>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yqv-Jd-8eN">
                                 <rect key="frame" x="76" y="357" width="222" height="30"/>
@@ -105,8 +109,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Website" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8jP-1S-gXg">
+                                <rect key="frame" x="76" y="489" width="222" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbl-5k-2KC">
+                                <rect key="frame" x="129" y="527" width="116" height="30"/>
+                                <state key="normal" title="Go To Website"/>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="jab-dv-BmO" eventType="touchUpInside" id="S0F-0L-crw"/>
+                                    <action selector="websiteButtonTapped:" destination="jab-dv-BmO" eventType="touchUpInside" id="I8e-mi-Cbq"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmf-u8-Zvi">
-                                <rect key="frame" x="164" y="485" width="46" height="30"/>
+                                <rect key="frame" x="164" y="565" width="46" height="30"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveButtonTapped:" destination="jab-dv-BmO" eventType="touchUpInside" id="XdK-3B-okZ"/>
@@ -121,9 +138,15 @@
                         <outlet property="locationTextField" destination="3VE-oC-5y7" id="iyU-se-4PU"/>
                         <outlet property="myImageView" destination="4fx-U6-byN" id="gam-EP-feB"/>
                         <outlet property="nameTextField" destination="yqv-Jd-8eN" id="DBh-Gy-tPn"/>
+                        <outlet property="websiteTextField" destination="8jP-1S-gXg" id="3rN-W5-bF6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ti-Zy-ezL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="WeR-pd-gO7">
+                    <connections>
+                        <action selector="imageTapped:" destination="jab-dv-BmO" id="ELa-Pu-EXM"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1533.5" y="285.5"/>
         </scene>

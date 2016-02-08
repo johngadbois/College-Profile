@@ -22,9 +22,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         myTableView.dataSource = self
         myTableView.delegate = self
         editButton.tag = 0
-        colleges.append(CollegeObject(Name: "University of Michigan", Location: "Ann Arbor, Michigan", Enrollment: 43651, Image: UIImage(named: "michigan")!))
-        colleges.append(CollegeObject(Name: "University of Wisconsin", Location: "Madison, Wisconsin", Enrollment: 43193, Image: UIImage(named: "wisc")!))
-        colleges.append(CollegeObject(Name: "Northwestern University", Location: "Evanston, Illinois", Enrollment: 20336, Image: UIImage(named: "north")!))
+        colleges.append(CollegeObject(Name: "University of Michigan", Location: "Ann Arbor, Michigan", Enrollment: 43651, Image: UIImage(named: "michigan")!, Website: "https://www.umich.edu/"))
+        colleges.append(CollegeObject(Name: "University of Wisconsin", Location: "Madison, Wisconsin", Enrollment: 43193, Image: UIImage(named: "wisc")!, Website: "http://www.wisc.edu/"))
+        colleges.append(CollegeObject(Name: "Northwestern University", Location: "Evanston, Illinois", Enrollment: 20336, Image: UIImage(named: "north")!, Website: "http://www.northwestern.edu/"))
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
@@ -89,13 +89,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         myAlert.addTextFieldWithConfigurationHandler { (enrollmentTextField) -> Void in
             enrollmentTextField.placeholder = "Enrollment"
         }
+        myAlert.addTextFieldWithConfigurationHandler { (webpageTextField) -> Void in
+            webpageTextField.placeholder = "Website"
+        }
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
         myAlert.addAction(cancelAction)
         let addAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.Default) { (addAction) -> Void in
             let collegeTF = myAlert.textFields![0] as UITextField
             let locationTF = myAlert.textFields![1] as UITextField
             let enrollmentTF = myAlert.textFields![2] as UITextField
-            self.colleges.append(CollegeObject(Name: collegeTF.text!, Location: locationTF .text!, Enrollment: Int(enrollmentTF.text!)!))
+            let webpageTF = myAlert.textFields![3] as UITextField
+            self.colleges.append(CollegeObject(Name: collegeTF.text!, Location: locationTF .text!, Enrollment: Int(enrollmentTF.text!)!, Website: webpageTF.text!))
             self.myTableView.reloadData()
         }
         myAlert.addAction(addAction)
@@ -107,6 +111,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let detailVC = segue.destinationViewController as! DetailViewController
         let selectedRow = myTableView.indexPathForSelectedRow?.row
         detailVC.college = colleges[selectedRow!]
+    }
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        myTableView.reloadData()
     }
 
     
